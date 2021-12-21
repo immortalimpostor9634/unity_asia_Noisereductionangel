@@ -681,7 +681,7 @@ GameObject:
   - component: {fileID: 151362593}
   - component: {fileID: 151362592}
   - component: {fileID: 151362594}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: "\u5730\u5F62"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4787,8 +4787,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 4.5
   jumped: 300
-  checkgroundradius: 0.1
-  checkgroundoffest: {x: 0, y: 0, z: 0}
+  checkgroundradius: 0.083
+  checkgroundoffest: {x: 0, y: -0.8, z: 0}
+  keyjump: 32
+  canjumplayer:
+    serializedVersion: 2
+    m_Bits: 8
+  isGrounded: 0
 --- !u!1 &600456889
 GameObject:
   m_ObjectHideFlags: 0

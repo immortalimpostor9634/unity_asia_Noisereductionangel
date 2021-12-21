@@ -18,6 +18,9 @@ public class controller2D : MonoBehaviour
     public float checkgroundradius = 0.1f;
     public Vector3 checkgroundoffest;
 
+    [Header("跳躍按鍵與可跳圖層")]
+    public KeyCode keyjump = KeyCode.Space;
+    public LayerMask canjumplayer;
 
     #endregion
 
@@ -26,14 +29,27 @@ public class controller2D : MonoBehaviour
     /// </summary>
     private Rigidbody2D rig;
 
+    // 將私人欄位顯示在面板上
+    [SerializeField]
+    ///<summary>
+    /// 是否在地板上
+    /// </summary>
+    private bool isGrounded;
+    
+
     /// <summary>
     /// 繪製圖示
     /// 在unity中繪製輔助用的圖示
     /// </summary>
     private void OnDrawGizmos()
     {
+        // 決定圖示顏色
         Gizmos.color = new Color(1, 0, 0.2f, 0.3f);
-        Gizmos.DrawSphere(transform.position, checkgroundradius);
+        // 決定繪製圖形及位置
+        // transform.position 此物件的世界座標
+        // transform.TransformDirection 根據變形元件的區域座標轉換為世界座標
+        Gizmos.DrawSphere(transform.position +
+            transform.TransformDirection(checkgroundoffest) , checkgroundradius);
     }
 
     private void Start()
@@ -52,6 +68,7 @@ public class controller2D : MonoBehaviour
     private void Update()
     {
         flip();
+        checkground();
     }
 
     #region 方法
@@ -88,6 +105,19 @@ public class controller2D : MonoBehaviour
         {
             transform.eulerAngles = Vector3.zero;
         }
+    }
+
+    ///<summary>
+    /// 檢查是否在地板
+    /// </summary>
+    private void checkground()
+    {
+        // 碰撞資訊 = 2D物理.覆蓋圓形(中心點，半徑，圖層)
+        Collider2D hit = Physics2D.OverlapCircle(transform.position +
+            transform.TransformDirection(checkgroundoffest), checkgroundradius, canjumplayer);
+
+        //print("碰到的物件名稱:" + hit.name);
+        isGrounded = hit;
     }
     #endregion
 }
