@@ -11,7 +11,7 @@ public class controller2D : MonoBehaviour
     public float speed = 3.5f;
 
     [Header("跳躍高度"), Range(0, 1000)]
-    public float jumped = 300;
+    public float jump = 300;
 
     [Header("檢查地板尺寸與位移")]
     [Range(0, 1)]
@@ -19,10 +19,12 @@ public class controller2D : MonoBehaviour
     public Vector3 checkgroundoffest;
 
     [Header("跳躍按鍵與可跳圖層")]
-    public KeyCode keyjump = KeyCode.Space;
+    public KeyCode keyjump = KeyCode.RightAlt;
     public LayerMask canjumplayer;
 
     #endregion
+
+    #region 欄位 : 私人
 
     /// <summary>
     /// 剛體元件 Rigidbody 2D
@@ -35,7 +37,10 @@ public class controller2D : MonoBehaviour
     /// 是否在地板上
     /// </summary>
     private bool isGrounded;
-    
+
+    #endregion
+
+    #region 事件
 
     /// <summary>
     /// 繪製圖示
@@ -69,9 +74,13 @@ public class controller2D : MonoBehaviour
     {
         flip();
         checkground();
+        Jump();
     }
 
+    #endregion
+
     #region 方法
+
     /// <summary>
     /// 1.玩家是否有按方向鍵
     /// 2.物件移動行為(API)
@@ -118,6 +127,18 @@ public class controller2D : MonoBehaviour
 
         //print("碰到的物件名稱:" + hit.name);
         isGrounded = hit;
+    }
+
+    /// <summary>
+    /// 跳躍
+    /// </summary>
+    private void Jump()
+    {
+        // 如果 角色在地板上 且 按下指定按鍵
+        if (isGrounded && Input.GetKeyDown(keyjump))
+        {
+            rig.AddForce(new Vector2(0, jump));
+        }
     }
     #endregion
 }
