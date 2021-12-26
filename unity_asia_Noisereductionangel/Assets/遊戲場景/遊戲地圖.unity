@@ -5366,7 +5366,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &880735545
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6221,7 +6221,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad46db5ebaed77e4da5621a8a7ae8ae4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  interval: 0.3
+  interval: 0.2
+  GoDialogue: {fileID: 840043761}
+  textContent: {fileID: 1905588899}
+  GoTip: {fileID: 880735544}
+  keyDialogue: 323
 --- !u!4 &1829923767
 Transform:
   m_ObjectHideFlags: 0
@@ -6306,7 +6310,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "(\u5728\u6B64\u8F38\u5165\u5C0D\u8A71)(\u5728\u6B64\u8F38\u5165\u5C0D\u8A71)(\u5728\u6B64\u8F38\u5165\u5C0D\u8A71)(\u5728\u6B64\u8F38\u5165\u5C0D\u8A71)(\u5728\u6B64\u8F38\u5165\u5C0D\u8A71)(\u5728\u6B64\u8F38\u5165\u5C0D\u8A71)(\u5728\u6B64\u8F38\u5165\u5C0D\u8A71)(\u5728\u6B64\u8F38\u5165\u5C0D\u8A71)(\u5728\u6B64\u8F38\u5165\u5C0D\u8A71)(\u5728\u6B64\u8F38\u5165\u5C0D\u8A71)(\u5728\u6B64\u8F38\u5165\u5C0D\u8A71)(\u5728\u6B64\u8F38\u5165\u5C0D\u8A71)(\u5728\u6B64\u8F38\u5165\u5C0D\u8A71)(\u5728\u6B64\u8F38\u5165\u5C0D\u8A71)(\u5728\u6B64\u8F38\u5165\u5C0D\u8A71)"
+  m_Text: "(\u5728\u6B64\u8F38\u5165\u5C0D\u8A71)(\u5728\u6B64\u8F38\u5165\u5C0D\u8A71)(\u5728\u6B64\u8F38\u5165\u5C0D\u8A71)"
 --- !u!222 &1905588900
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -6325,6 +6329,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2016845457}
   - component: {fileID: 2016845456}
+  - component: {fileID: 2016845458}
   m_Layer: 0
   m_Name: "\u89F8\u767C\u5C0D\u8A71\u7269\u4EF6"
   m_TagString: Untagged
@@ -6397,3 +6402,29 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &2016845458
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2016845455}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0

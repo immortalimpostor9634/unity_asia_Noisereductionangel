@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 
 /// <summary>
@@ -11,18 +12,53 @@ public class Dialoguesystem : MonoBehaviour
     [Header("對話間隔"), Range(0, 1)]
     public float interval = 0.3f;
 
+    [Header("畫布對話系統")]
+    public GameObject GoDialogue;
+
+    [Header("對話內容")]
+    public Text textContent;
+
+    [Header("對話完成圖示")]
+    public GameObject GoTip;
+
+    [Header("對話按鍵")]
+    public KeyCode keyDialogue = KeyCode.Mouse0;
+
     private void Start()
     {
-        StartCoroutine(TypeEffect());
+        // StartCoroutine(TypeEffect());
     }
 
-    private IEnumerator TypeEffect()
+    private IEnumerator TypeEffect(string[] contents )
     {
-        string test = "測試測試測試測試測試";
+        // string test1 = "測試1測試1測試1測試1";
+        // string test2 = "測試2測試2測試2測試2";
 
-        for (int i = 0; i < test.Length; i++)
+        // string[] test = { test1, test2 };
+
+        GoDialogue.SetActive(true);    // 顯示對話物件
+
+        for (int j = 0; j < contents.Length; j++)    // 遍尋所有對話
         {
-            print(test[i]);
-            yield return new WaitForSeconds(interval);       }
+
+            textContent.text = " ";     // 清除上次對話內容
+            GoTip.SetActive(false);    // 隱藏對話完成圖示
+
+            for (int i = 0; i < contents[j].Length; i++)  // 遍尋對話裡每一個字
+            {
+                textContent.text += contents[j][i];      // 疊加對話內容文字介面
+                yield return new WaitForSeconds(interval);
+            }
+
+            GoTip.SetActive(true);    // 顯示對話完成圖示
+
+            while (!Input.GetKeyDown(keyDialogue))    // 沒有按下按鍵時持續進行
+            {
+                yield return null;   // 等待一個 null 的時間
+            }
+        }
+
+        GoTip.SetActive(false);    // 隱藏對話完成圖示
+
     }
 }
