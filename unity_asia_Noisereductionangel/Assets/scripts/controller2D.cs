@@ -22,9 +22,17 @@ public class controller2D : MonoBehaviour
     public KeyCode keyjump = KeyCode.RightAlt;
     public LayerMask canjumplayer;
 
+    [Header("動畫參數:跳躍與攻擊")]
+    public string parameterJump = "小白_跳躍";
+    public string parameterAttacket = "小白_攻擊";
+    public string parameterDie = "小白_死亡";
+
     #endregion
 
     #region 欄位 : 私人
+
+    // 設定動畫欄位
+    private Animator ani;
 
     /// <summary>
     /// 剛體元件 Rigidbody 2D
@@ -57,9 +65,14 @@ public class controller2D : MonoBehaviour
             transform.TransformDirection(checkgroundoffest) , checkgroundradius);
     }
 
+    // 開始事件
     private void Start()
     {
+        // 剛體欄位 = 取得元件 <2D剛體>();
         rig = GetComponent<Rigidbody2D>();
+
+        // 動畫欄位 = 取得元件 <動畫控制器>();
+        ani = GetComponent<Animator>();
     }
 
     /// <summary>
@@ -92,6 +105,7 @@ public class controller2D : MonoBehaviour
 
         // 剛體元件.加速度 = 新二維向量( 區域變數名稱*移動速度,0)
         rig.velocity = new Vector2(hori * speed, rig.velocity.y);
+
     }
 
     /// <summary>
@@ -125,8 +139,11 @@ public class controller2D : MonoBehaviour
         Collider2D hit = Physics2D.OverlapCircle(transform.position +
             transform.TransformDirection(checkgroundoffest), checkgroundradius, canjumplayer);
 
-        //print("碰到的物件名稱:" + hit.name);
+        // print("碰到的物件名稱:" + hit.name);
         isGrounded = hit;
+
+        // 當 小白不在地上 時 勾選 小白_跳躍 的參數
+        ani.SetBool(parameterJump,!isGrounded);
     }
 
     /// <summary>
