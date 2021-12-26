@@ -29,6 +29,11 @@ public class Dialoguesystem : MonoBehaviour
         // StartCoroutine(TypeEffect());
     }
 
+    /// <summary>
+    /// 打字效果
+    /// </summary>
+    /// <param name="contents"></param>
+    /// <returns></returns>
     private IEnumerator TypeEffect(string[] contents )
     {
         // string test1 = "測試1測試1測試1測試1";
@@ -60,5 +65,23 @@ public class Dialoguesystem : MonoBehaviour
 
         GoTip.SetActive(false);    // 隱藏對話完成圖示
 
+    }
+
+    /// <summary>
+    /// 開始對話
+    /// </summary>
+    /// <param name = "contents"> 要顯示打字效果的對話內容 </param>
+    public void StartDialogue(string[] contents)
+    {
+        StartCoroutine(TypeEffect(contents));
+    }
+
+    /// <summary>
+    /// 結束對話
+    /// </summary>
+    public void StopDialogue()
+    {
+        StopAllCoroutines();     // 停止協程
+        GoDialogue.SetActive(false);    // 隱藏對話介面
     }
 }
