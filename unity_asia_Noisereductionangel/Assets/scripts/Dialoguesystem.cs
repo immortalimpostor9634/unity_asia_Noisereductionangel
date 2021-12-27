@@ -64,6 +64,7 @@ public class Dialoguesystem : MonoBehaviour
         }
 
         GoTip.SetActive(false);    // 隱藏對話完成圖示
+        GoDialogue.SetActive(false);    // 隱藏對話介面
 
     }
 
@@ -82,6 +83,5 @@ public class Dialoguesystem : MonoBehaviour
     public void StopDialogue()
     {
         StopAllCoroutines();     // 停止協程
-        GoDialogue.SetActive(false);    // 隱藏對話介面
     }
 }
