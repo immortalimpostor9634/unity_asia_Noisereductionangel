@@ -18,9 +18,25 @@ public class Enemy : MonoBehaviour
     [Header("面相目標物件")]
     public Transform target;
 
+    [Header("攻擊距離"), Range(0, 5)]
+    public float AttackDistance = 1.3f;
+
+    [Header("攻擊冷卻時間"), Range(0, 10)]
+    public float AttackCD = 2.8f;
+
+    [Header("檢查攻擊區域大小與位移")]
+    public Vector3 v3AttackSize = Vector3.one;
+    public Vector3 v3AttackOffset;
+
+    [Header("攻擊力"), Range(0, 100)]
+    public float attack = 35;
+
+
     private Rigidbody2D rig;
 
     private float angle = 0;
+
+    private float timerAttack;
 
     #endregion
 
@@ -37,8 +53,13 @@ public class Enemy : MonoBehaviour
         Gizmos.color = new Color(1, 0, 0, 0.3f);
 
         // 繪製立方體(中心,尺寸)
-        Gizmos.DrawCube(transform.position + transform.TransformDirection (v3TrackOffset), v3TrackSize);
+        Gizmos.DrawCube(transform.position +
+            transform.TransformDirection (v3TrackOffset), v3TrackSize);
 
+        Gizmos.color = new Color(0, 1, 0, 0.3f);
+
+        Gizmos.DrawCube(transform.position +
+            transform.TransformDirection(v3AttackOffset), v3AttackSize);
     }
 
     private void Update()
@@ -56,13 +77,18 @@ public class Enemy : MonoBehaviour
     private void CheckTargetInArea()
     {
         // 2D 物理.覆蓋盒形(中心,尺寸,角度)
-        Collider2D hit = Physics2D.OverlapBox(transform.position + transform.TransformDirection(v3TrackOffset), v3TrackSize, 0, layerTarget);
+        Collider2D hit = Physics2D.OverlapBox(transform.position +
+            transform.TransformDirection(v3TrackOffset), v3TrackSize, 0, layerTarget);
 
         if (hit) print(hit.name);
 
         if (hit) Move();
     }
 
+
+    /// <summary>
+    /// 移動
+    /// </summary>
     private void Move()
     {
         if (target.position.x > transform.position.x)
@@ -77,8 +103,40 @@ public class Enemy : MonoBehaviour
 
         angle = target.position.x > transform.position.x ? 180 : 0;
 
-        rig.velocity = new Vector2(-speed, rig.velocity.y);
+        transform.eulerAngles = Vector3.up * angle;
 
+        rig.velocity = transform.TransformDirection(new Vector2(-speed, rig.velocity.y));
+
+        // 距離 = 三維向量.距離(A點,B點)
+        float distance = Vector3.Distance(target.position, transform.position);
+        // print("與目標的距離:" + distance);
+
+        if (distance <= AttackDistance)    // 如果 距離 小於等於 攻擊距離
+        {
+            rig.velocity = Vector3.zero;   // 停止移動
+        }
+
+    }
+
+    /// <summary>
+    /// 攻擊
+    /// </summary>
+    private void Attack()
+    {
+        if (timerAttack < AttackCD)
+        {
+            timerAttack += Time.deltaTime;
+        }
+        else
+        {
+            timerAttack = 0;
+
+            Collider2D hit = Physics2D.OverlapBox(transform.position + 
+                transform.TransformDirection(v3AttackOffset), v3AttackSize, 0, layerTarget);
+            print("攻擊到物件:" + hit.name);
+
+            hit.GetComponent<Huntsystem>().Hunt(attack);
+        }
     }
 
     #endregion

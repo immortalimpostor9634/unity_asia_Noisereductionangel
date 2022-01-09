@@ -101,7 +101,7 @@ public class controller2D : MonoBehaviour
     private void move()
     {
         float hori = Input.GetAxis("Horizontal");
-        print(" 玩家左右鍵值:" + hori);
+        // print(" 玩家左右鍵值:" + hori);
 
         // 剛體元件.加速度 = 新二維向量( 區域變數名稱*移動速度,0)
         rig.velocity = new Vector2(hori * speed, rig.velocity.y);

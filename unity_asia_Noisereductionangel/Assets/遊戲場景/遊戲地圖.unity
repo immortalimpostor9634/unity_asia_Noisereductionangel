@@ -4816,6 +4816,11 @@ MonoBehaviour:
   layerTarget:
     serializedVersion: 2
     m_Bits: 64
+  target: {fileID: 519332887}
+  AttackDistance: 1
+  AttackCD: 1
+  v3AttackSize: {x: 1.5, y: 1.5, z: 1}
+  v3AttackOffset: {x: -0.1, y: 0, z: 0}
 --- !u!70 &354183595
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -4867,6 +4872,7 @@ GameObject:
   - component: {fileID: 519332889}
   - component: {fileID: 519332890}
   - component: {fileID: 519332891}
+  - component: {fileID: 519332892}
   m_Layer: 6
   m_Name: "\u5C0F\u767D"
   m_TagString: Untagged
@@ -5019,6 +5025,20 @@ MonoBehaviour:
   parameterAttacket: "\u5C0F\u767D_\u653B\u64CA"
   parameterDie: "\u5C0F\u767D_\u6B7B\u4EA1"
   isGrounded: 0
+--- !u!114 &519332892
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 519332885}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2dedd816deed75d468ff902c3a7f582a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  imgHPbar: {fileID: 1543352028}
+  HP: 100
 --- !u!1 &600456889
 GameObject:
   m_ObjectHideFlags: 0
