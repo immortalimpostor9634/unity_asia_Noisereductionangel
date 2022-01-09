@@ -15,7 +15,7 @@ public class Attacksystem : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            Vector3 pos = gameObject.transform.position + new Vector3(0.3f, 0, 0);
+            Vector3 pos = gameObject.transform.position + new Vector3(0.3f, -0.3f, 0);
 
             Instantiate(Bullet, pos, gameObject.transform.rotation);
 
