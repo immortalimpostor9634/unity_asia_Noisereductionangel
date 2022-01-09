@@ -22,10 +22,8 @@ public class controller2D : MonoBehaviour
     public KeyCode keyjump = KeyCode.RightAlt;
     public LayerMask canjumplayer;
 
-    [Header("動畫參數:跳躍與攻擊")]
+    [Header("動畫參數:跳躍")]
     public string parameterJump = "小白_跳躍";
-    public string parameterAttacket = "小白_攻擊";
-    public string parameterDie = "小白_死亡";
 
     #endregion
 

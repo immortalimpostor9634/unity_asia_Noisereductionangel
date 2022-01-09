@@ -5287,6 +5287,7 @@ GameObject:
   - component: {fileID: 519332890}
   - component: {fileID: 519332891}
   - component: {fileID: 519332892}
+  - component: {fileID: 519332893}
   m_Layer: 6
   m_Name: "\u5C0F\u767D"
   m_TagString: Untagged
@@ -5481,6 +5482,19 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+--- !u!114 &519332893
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 519332885}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eccc0839f032fca41873a48e0d3bc277, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Bullet: {fileID: 885824273570203673, guid: 4ded3db01c9183f48bc98763f979051f, type: 3}
 --- !u!1 &600456889
 GameObject:
   m_ObjectHideFlags: 0
