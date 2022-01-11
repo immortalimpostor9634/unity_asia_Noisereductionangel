@@ -7,15 +7,14 @@ public class bullet : MonoBehaviour
 
     private void Update()
     {
-            gameObject.transform.position += new Vector3(0.1f, 0, 0);
+        gameObject.transform.position += transform.right * 0.1f;
     }
 
-    void OnTriggerEnter2D(Collider2D col)   //名為col的觸發事件
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (col.tag == "enemy" || col.tag == "bullt")
+        if (collision.gameObject.tag == "enemy")
         {
-            Destroy(col.gameObject);   //消滅碰撞的物件
-            Destroy(gameObject);   //消滅物件本身
+            Destroy(gameObject);
         }
     }
 

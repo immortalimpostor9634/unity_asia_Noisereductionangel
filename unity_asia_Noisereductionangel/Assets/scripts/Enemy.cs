@@ -121,32 +121,44 @@ public class Enemy : MonoBehaviour
     /// <summary>
     /// 攻擊
     /// </summary>
-    private void Attack()
+    private void Attack(Collision2D attacked)
     {
-        if (timerAttack < AttackCD)
+        if (attacked.gameObject.tag == "Player")
         {
             timerAttack += Time.deltaTime;
         }
         else
         {
-            timerAttack = 0;
-
-            Collider2D hit = Physics2D.OverlapBox(transform.position + 
+            Collider2D hit = Physics2D.OverlapBox(transform.position +
                 transform.TransformDirection(v3AttackOffset), v3AttackSize, 0, layerTarget);
             print("攻擊到物件:" + hit.name);
 
             hit.GetComponent<Huntsystem>().Hunt(attack);
+
         }
+
+        // if (timerAttack < AttackCD)
+        // {
+        //     timerAttack += Time.deltaTime;
+        // }
+        // else
+        // {
+        //     timerAttack = 0;
+
+        //     Collider2D hit = Physics2D.OverlapBox(transform.position + 
+        //         transform.TransformDirection(v3AttackOffset), v3AttackSize, 0, layerTarget);
+        //     print("攻擊到物件:" + hit.name);
+
+        //     hit.GetComponent<Huntsystem>().Hunt(attack);
+        // }
     }
 
-    void OnTriggerEnter2D(Collider2D col)   //名為col的觸發事件
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (col.tag == "enemy" || col.tag == "bullt")
+        if (collision.gameObject.tag == "bullet")
         {
-            Destroy(col.gameObject);   //消滅碰撞的物件
-            Destroy(gameObject);   //消滅物件本身
+            Destroy(gameObject);
         }
     }
-
     #endregion
 }
