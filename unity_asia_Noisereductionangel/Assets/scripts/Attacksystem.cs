@@ -11,11 +11,17 @@ public class Attacksystem : MonoBehaviour
     // 設定動畫欄位
     private Animator ani;
 
+    [Header("檢查攻擊出口與轉向")]
+    [Range(0, 1)]
+    public float checkbulltout = 0.1f;
+    public Vector3 checkbulltoffest;
+
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            Vector3 pos = gameObject.transform.position + new Vector3(0.3f, -0.3f, 0);
+            Vector3 pos = gameObject.transform.position +
+            transform.TransformDirection(checkbulltoffest);
 
             Instantiate(Bullet, pos, gameObject.transform.rotation);
 
@@ -30,4 +36,14 @@ public class Attacksystem : MonoBehaviour
         ani = GetComponent<Animator>();
     }
 
+    private void OnDrawGizmos()
+    {
+        // 決定圖示顏色
+        Gizmos.color = new Color(1, 0, 0.2f, 0.3f);
+        // 決定繪製圖形及位置
+        // transform.position 此物件的世界座標
+        // transform.TransformDirection 根據變形元件的區域座標轉換為世界座標
+        Gizmos.DrawSphere(transform.position +
+            transform.TransformDirection(checkbulltoffest), checkbulltout);
+    }
 }

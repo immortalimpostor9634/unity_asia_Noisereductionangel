@@ -5507,6 +5507,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   parameterAttacket: "\u5C0F\u767D_\u653B\u64CA"
   Bullet: {fileID: 885824273570203673, guid: 4ded3db01c9183f48bc98763f979051f, type: 3}
+  checkbulltout: 0.1
+  checkbulltoffest: {x: 0.3, y: -0.3, z: 0}
 --- !u!1 &600456889
 GameObject:
   m_ObjectHideFlags: 0
