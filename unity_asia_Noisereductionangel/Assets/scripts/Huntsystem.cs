@@ -13,7 +13,7 @@ public class Huntsystem : MonoBehaviour
     public Image imgHPbar;
 
     [Header("血量")]
-    public float HP =100;
+    public float HP = 100;
 
     [Header("動畫參數")]
     public string parameterDead = "小白_死亡";

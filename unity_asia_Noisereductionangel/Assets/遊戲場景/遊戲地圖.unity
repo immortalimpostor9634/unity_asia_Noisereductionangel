@@ -5120,7 +5120,6 @@ GameObject:
   - component: {fileID: 354183594}
   - component: {fileID: 354183596}
   - component: {fileID: 354183595}
-  - component: {fileID: 354183597}
   m_Layer: 0
   m_Name: "\u566A\u97F3\u602A"
   m_TagString: enemy
@@ -5233,9 +5232,9 @@ MonoBehaviour:
   target: {fileID: 519332887}
   AttackDistance: 1
   AttackCD: 1
-  v3AttackSize: {x: 1.5, y: 1.5, z: 1}
+  v3AttackSize: {x: 2, y: 2, z: 1}
   v3AttackOffset: {x: -0.1, y: 0, z: 0}
-  attack: 35
+  attack: 20
 --- !u!70 &354183595
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -5273,18 +5272,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &354183597
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 354183590}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 58a96a5b8ff049542ae4bcf579bd5cad, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &519332885
 GameObject:
   m_ObjectHideFlags: 0
