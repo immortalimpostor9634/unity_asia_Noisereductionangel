@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Events;
 
 /// <summary>
 /// 控制器 : 小白
@@ -24,6 +25,10 @@ public class controller2D : MonoBehaviour
 
     [Header("動畫參數:跳躍")]
     public string parameterJump = "小白_跳躍";
+    public string parameterDead = "小白_死亡";
+
+    [Header("死亡事件")]
+    public UnityEvent onDead;
 
     #endregion
 
@@ -155,5 +160,19 @@ public class controller2D : MonoBehaviour
             rig.AddForce(new Vector2(0, jump));
         }
     }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "enemy")
+        {
+            ani.SetTrigger(parameterDead);
+            onDead.Invoke();
+        }
+    }
+
+    // private void Dead()
+    // {
+    //         ani.SetTrigger(parameterDead);
+    // }
     #endregion
 }
