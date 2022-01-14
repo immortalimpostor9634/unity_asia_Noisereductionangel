@@ -5290,7 +5290,7 @@ MonoBehaviour:
   jump: 700
   checkgroundradius: 0.083
   checkgroundoffest: {x: 0, y: -0.9, z: 0}
-  keyjump: 308
+  keyjump: 273
   canjumplayer:
     serializedVersion: 2
     m_Bits: 8
