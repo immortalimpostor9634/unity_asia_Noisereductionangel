@@ -689,7 +689,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u91CD\u65B0\u904A\u6232"
+  m_Text: RESTART
 --- !u!222 &25572376
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -5527,7 +5527,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 40}
-  m_SizeDelta: {x: 250, y: 70}
+  m_SizeDelta: {x: 300, y: 70}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &719247535
 MonoBehaviour:
@@ -5562,7 +5562,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u6311\u6230\u5931\u6557"
+  m_Text: GAME OVER
 --- !u!222 &719247536
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -6644,7 +6644,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u91CD\u65B0\u958B\u59CB"
+  m_Text: 'RESTART
+
+'
 --- !u!222 &1274999716
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -6988,7 +6990,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u7D50\u675F\u904A\u6232"
+  m_Text: EXIT
 --- !u!222 &1477325036
 CanvasRenderer:
   m_ObjectHideFlags: 0

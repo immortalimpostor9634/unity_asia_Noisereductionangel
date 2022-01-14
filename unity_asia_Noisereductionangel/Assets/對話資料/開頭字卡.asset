@@ -13,5 +13,7 @@ MonoBehaviour:
   m_Name: "\u958B\u982D\u5B57\u5361"
   m_EditorClassIdentifier: 
   dialogue:
-  - "\u964D\u566A\u5C0F\u5929\u4F7F~\u6D88\u6EC5\u566A\u97F3\u602A!"
-  - "( \u65B9\u5411\u9375\u79FB\u52D5\uFF0Calt\u8DF3\u8E8D\uFF0C\u7A7A\u767D\u9375\u653B\u64CA)"
+  - HELLO~PLAYER~
+  - 'KILL THOSE MONSTER
+
+    GET TO THE TOP'
